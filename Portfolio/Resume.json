@@ -1,0 +1,44 @@
+{
+	"header":{
+
+	},
+	"entries":[
+		{
+			"preview":{
+				"title": "Designer and Developer",
+				"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere turpis vitae mollis rhoncus. Sed in tellus eget libero euismod tempor a ut risus. Mauris varius suscipit vulputate. Praesent vel tincidunt erat, laoreet malesuada odio. Vivamus sagittis massa nisi, vitae suscipit magna hendrerit eu. Donec nec libero porttitor, vestibulum nisi vitae, tempor metus. In molestie sollicitudin nulla sit amet pharetra. Suspendisse ullamcorper orci rutrum vestibulum pellentesque. Integer et ultricies ante, id suscipit neque.",
+				"previewImage": "imageName"
+			},
+			"detail": {
+				"headline": "Aquarium Automation Concept",
+				"sections":[
+						   {
+						   		"title": "An exercise in modularity",
+						   		"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere turpis vitae mollis rhoncus. Sed in tellus eget libero euismod tempor a ut risus. Mauris varius suscipit vulputate. Praesent vel tincidunt erat, laoreet malesuada odio. Vivamus sagittis massa nisi, vitae suscipit magna hendrerit eu. Donec nec libero porttitor, vestibulum nisi vitae, tempor metus. In molestie sollicitudin nulla sit amet pharetra. Suspendisse ullamcorper orci rutrum vestibulum pellentesque. Integer et ultricies ante, id suscipit neque.",
+						   		"callout": {
+						   			"type": "video",
+						   			"style": "billboard",
+						   			"assetName": "AquariumBillboard1",
+						   			"badge": {
+						   				"assetName": "AquariumCallout1"
+						   			}
+						   		}
+						   },
+						   {
+						   		"title": "An exercise in modularity",
+						   		"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere turpis vitae mollis rhoncus. Sed in tellus eget libero euismod tempor a ut risus. Mauris varius suscipit vulputate. Praesent vel tincidunt erat, laoreet malesuada odio. Vivamus sagittis massa nisi, vitae suscipit magna hendrerit eu. Donec nec libero porttitor, vestibulum nisi vitae, tempor metus. In molestie sollicitudin nulla sit amet pharetra. Suspendisse ullamcorper orci rutrum vestibulum pellentesque. Integer et ultricies ante, id suscipit neque.",
+						   		"callout": {
+						   			"type": "image",
+						   			"style": "floatLeft",
+						   			"assetName": "AquariumBillboard1",
+						   			"badge": {
+						   				"assetName": "AquariumCallout1"
+						   			}
+						   		}
+						   }
+				]
+			}
+		},
+		{}
+	]
+}

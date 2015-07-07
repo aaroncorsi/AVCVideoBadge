@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AVCVideoBadge.h"
+#import "AVCVideoBillboard.h"
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet AVCVideoBadge *testVideoBadge;
+@property (weak, nonatomic) IBOutlet AVCVideoBillboard *testVideoBillboard;
 
 @end
 

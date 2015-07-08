@@ -58,16 +58,16 @@
 	self.progressLayer.frame = self.bounds;
 	self.progressLayer.lineWidth = 1;
 	self.progressLayer.fillColor = [[UIColor clearColor] CGColor];
-	self.progressLayer.strokeColor = [[UIColor colorWithHue:0 saturation:0 brightness:0.5 alpha:1] CGColor];
-	self.progressLayer.path = [self circlePath].CGPath;
+	self.progressLayer.strokeColor = [[UIColor colorWithRed:0 green:255 blue:216 alpha:1] CGColor];
+	self.progressLayer.path = [self uprightCirclePath].CGPath;
 	[self.layer addSublayer:self.progressLayer];
-	self.progress = 1;
+	self.progress = 0.2;
 }
 
 #pragma mark - Accessors
 
 - (CGFloat)circleRadius {
-	return self.frame.size.height / 2;
+	return MIN(self.frame.size.width, self.frame.size.height);
 }
 
 - (CGFloat)progress {
@@ -113,13 +113,25 @@
 //}
 
 - (UIBezierPath *)circlePath {
-	return [UIBezierPath bezierPathWithOvalInRect:[self circleFrame]];
+	UIBezierPath *newPath = [UIBezierPath bezierPathWithOvalInRect:[self circleFrame]];
+	CGAffineTransform rotate = CGAffineTransformIdentity;
+	rotate = CGAffineTransformRotate(rotate, DEGREES_TO_RADIANS(180));
+	[newPath applyTransform:rotate];
+	return newPath;
+}
+
+- (UIBezierPath *)uprightCirclePath {
+	CGRect circleFrame = [self circleFrame];
+	CGPoint center = CGPointMake(CGRectGetMidX(circleFrame), CGRectGetMidY(circleFrame));
+	CGFloat startAngle = M_PI_2; // Six O'Clock Angle
+	CGFloat endAngle = startAngle + (2.0 * M_PI);
+	return [UIBezierPath bezierPathWithArcCenter:center radius:self.circleRadius startAngle:startAngle endAngle:endAngle clockwise:YES];
 }
 
 - (CGRect)circleFrame {
 	CGRect circleFrame = CGRectMake(0, 0, 2 * self.circleRadius, 2 * self.circleRadius);
-	circleFrame.origin.x = CGRectGetMidX(self.progressLayer.bounds) - CGRectGetMidX(circleFrame);
-	circleFrame.origin.y = CGRectGetMidY(self.progressLayer.bounds) - CGRectGetMidY(circleFrame);
+	circleFrame.origin.x = CGRectGetMidX(self.bounds) - CGRectGetMidX(circleFrame);
+	circleFrame.origin.y = CGRectGetMidY(self.bounds) - CGRectGetMidY(circleFrame);
 	return circleFrame;
 }
 

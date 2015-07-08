@@ -12,7 +12,7 @@
 @interface AVCVideoBadge ()
 
 @property (nonatomic, strong) UIDynamicAnimator *animator;
-@property (nonatomic, strong) UISnapBehavior *snap;
+@property (nonatomic, strong) UISnapBehavior *snapBehavior;
 @property (nonatomic, strong) UIPanGestureRecognizer *panRecognizer;
 @property (nonatomic) BOOL snapEnabled;
 
@@ -72,18 +72,18 @@
 	
 	// Setup snap behavior
 	self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.superview];
-	self.snap = [[UISnapBehavior alloc] initWithItem:self snapToPoint:[self billboardCorner]];
-	self.snap.damping = 0.7;
+	self.snapBehavior = [[UISnapBehavior alloc] initWithItem:self snapToPoint:[self billboardCorner]];
+	self.snapBehavior.damping = 0.7;
 	self.snapEnabled = YES;
 }
 
 - (void)setSnapEnabled:(BOOL)snapEnabled {
-	if (self.snap && self.animator) {
+	if (self.snapBehavior && self.animator) {
 		_snapEnabled = snapEnabled;
 		if (self.snapEnabled) {
-			[self.animator addBehavior:self.snap];
+			[self.animator addBehavior:self.snapBehavior];
 		} else {
-			[self.animator removeBehavior:self.snap];
+			[self.animator removeBehavior:self.snapBehavior];
 		}
 	} else {
 		_snapEnabled = NO;
@@ -126,15 +126,23 @@
 - (void)didPan:(UIPanGestureRecognizer *)panRecognizer {
 	static CGPoint startCenter;
 	if (panRecognizer.state == UIGestureRecognizerStateBegan) {
-		NSLog(@"Pan Began");
 		startCenter = panRecognizer.view.center;
 		self.snapEnabled = NO;
 	} else if (panRecognizer.state == UIGestureRecognizerStateChanged) {
 		CGPoint translation = [panRecognizer translationInView:self.superview];
 		self.center = CGPointMake(startCenter.x + translation.x, startCenter.y + translation.y);
 	} else if (panRecognizer.state == UIGestureRecognizerStateEnded) {
-		NSLog(@"Pan Ended");
 		self.snapEnabled = YES;
+	}
+}
+
+- (void)didLongPress:(UILongPressGestureRecognizer *)gestureRecognizer {
+	if (self.playbackControlEnabled && self.videoPlayerView.player.rate > 0) {
+		if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+			[self playWithRate:2];
+		} else if (gestureRecognizer.state == UIGestureRecognizerStateCancelled || gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+			[self playWithRate:1];
+		}
 	}
 }
 

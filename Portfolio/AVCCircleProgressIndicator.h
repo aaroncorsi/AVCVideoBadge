@@ -10,7 +10,11 @@
 
 @interface AVCCircleProgressIndicator : UIView
 
-@property (nonatomic, strong) CAShapeLayer *circlePlaybackIndicatorLayer;
-@property (nonatomic) CGFloat circlePlaybackIndicatorRadius;
+// Configuration
+@property (nonatomic) CGFloat progress;
+@property (nonatomic) CGFloat progressWidth;
+@property (nonatomic) CGFloat trackWidth;
+@property (nonatomic, strong) UIColor *progressTintColor;
+@property (nonatomic, strong) UIColor *trackTintColor;
 
 @end

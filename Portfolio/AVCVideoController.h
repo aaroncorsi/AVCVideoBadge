@@ -22,10 +22,17 @@
 @property (nonatomic, strong) AVCVideoView *videoPlayerView;
 @property (nonatomic, strong) UIImageView *thumbnailImageView;
 
+// Lifecycle
+- (void)configure;
+
+// Playback
 - (void)play;
 - (void)pause;
 - (void)stop;
 - (void)playWithRate:(float)playbackRate;
-- (void)configure;
+
+// Gestures
+- (void)didSingleTap:(UITapGestureRecognizer *)gestureRecognizer;
+- (void)didLongPress:(UILongPressGestureRecognizer *)gestureRecognizer;
 
 @end

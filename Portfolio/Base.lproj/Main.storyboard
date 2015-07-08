@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GLh-0B-VW4" customClass="AVCVideoBillboard">
-                                <rect key="frame" x="45" y="54" width="501" height="300"/>
+                                <rect key="frame" x="45" y="54" width="208" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wl0-Hd-GOe" customClass="AVCVideoBadge">
@@ -25,7 +25,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YzO-zw-9b0" customClass="AVCCircleProgressIndicator">
-                                <rect key="frame" x="16" y="344" width="75" height="75"/>
+                                <rect key="frame" x="49" y="380" width="200" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>

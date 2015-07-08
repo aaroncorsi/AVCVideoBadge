@@ -34,7 +34,7 @@
 	self.playbackControlEnabled = YES;
 	
 	// Gesture Recognizers
-	UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSingleTap)];
+	UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSingleTap:)];
 	[self addGestureRecognizer:tapRecognizer];
 	UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPress:)];
 	[self addGestureRecognizer:longPressRecognizer];
@@ -105,7 +105,7 @@
 
 #pragma mark - Gestures
 
-- (void)didSingleTap {
+- (void)didSingleTap:(UITapGestureRecognizer *)gestureRecognizer {
 	if (self.playbackControlEnabled) {
 		if (self.videoPlayerView.player.rate > 0) {
 			[self stop];

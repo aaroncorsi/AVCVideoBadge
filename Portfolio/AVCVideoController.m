@@ -68,13 +68,11 @@
 }
 
 - (void)setPlaybackProgress:(CGFloat)playbackProgress {
-	if (playbackProgress > 1) {
-		
-	} else if (playbackProgress < 0) {
-		
-	} else {
-		
-	}
+	self.videoPlayerView.playbackProgress = playbackProgress;
+}
+
+- (CGFloat)playbackProgress {
+	return self.videoPlayerView.playbackProgress;
 }
 
 #pragma mark - Playback
@@ -123,6 +121,16 @@
 			[self playWithRate:1];
 		}
 	}
+}
+
+#pragma mark - AVCVideoViewDelegate
+
+- (void)didChangeProgress:(double)progress {
+	self.playbackProgress = progress;
+}
+
+- (void)videoDidReachEnd {
+	[self stop];
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "AVCVideoBadge.h"
 #import "AVCVideoBillboard.h"
+#import "AVCCircleProgressIndicator.h"
 
 @interface AVCVideoBadge ()
 
@@ -54,6 +55,12 @@
 	[super configure];
 	// Set mask
 	self.maskView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"VideoBadgeMask"]];
+	self.backgroundColor = [UIColor clearColor];
+	
+	// Progress indicator
+	self.progressIndicator = [[AVCCircleProgressIndicator alloc] initWithFrame:CGRectMake(2, 2, self.frame.size.width - 4, self.frame.size.height - 4)];
+	self.progressIndicator.progress = 0;
+	[self addSubview:self.progressIndicator];
 	
 	// Setup pan gesture
 	self.panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPan:)];
@@ -91,6 +98,11 @@
 	}
 }
 
+- (void)setPlaybackProgress:(CGFloat)playbackProgress {
+	[super setPlaybackProgress:playbackProgress];
+	self.progressIndicator.progress = self.playbackProgress;
+}
+
 #pragma mark - Playback controls
 
 - (void)play {
@@ -108,10 +120,10 @@
 }
 
 - (void)stop {
-	[super stop];
 	if (self.billboard) {
 		[self.billboard stop];
 	}
+	[super stop];
 }
 
 - (void)playWithRate:(float)playbackRate {
@@ -119,6 +131,13 @@
 	if (self.billboard) {
 		[self.billboard playWithRate:playbackRate];
 	}
+}
+
+#pragma mark Progress view
+
+- (void)syncProgressView {
+	self.progressIndicator.progress = self.videoPlayerView.playbackProgress;
+	[self.progressIndicator layoutSubviews];
 }
 
 #pragma mark - Gestures

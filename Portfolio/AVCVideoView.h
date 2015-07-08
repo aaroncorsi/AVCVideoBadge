@@ -14,6 +14,8 @@
 @protocol AVCVideoViewDelegate <NSObject>
 
 - (void)setVideoThumbnail:(UIImage *)image;
+- (void)didChangeProgress:(double)progress;
+- (void)videoDidReachEnd;
 
 @end
 
@@ -25,7 +27,7 @@
 @property (nonatomic, strong) AVPlayerItem *playerItem;
 @property (nonatomic, strong) AVPlayerLayer *videoLayer;
 @property (nonatomic, readonly) CMTime videoDuration;
-@property (nonatomic, readonly) CGFloat playbackProgress;
+@property (nonatomic) double playbackProgress;
 @property (nonatomic, weak) id timeObserver;
 
 @property (nonatomic, weak) id<AVCVideoViewDelegate> delegate;

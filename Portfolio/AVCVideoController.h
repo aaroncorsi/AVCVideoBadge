@@ -13,7 +13,7 @@
 
 // Playback
 @property (nonatomic) BOOL playbackControlEnabled;
-@property (nonatomic, readonly) CGFloat playbackProgress;
+@property (nonatomic) CGFloat playbackProgress;
 
 @property (nonatomic, strong) NSURL *videoURL;
 @property (nonatomic, strong) UIImage *videoThumbnail;

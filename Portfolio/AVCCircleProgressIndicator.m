@@ -23,9 +23,9 @@
 
 #pragma mark - Lifecycle
 
-- (instancetype)init
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [super init];
+    self = [super initWithFrame:frame];
     if (self) {
 		[self configure];
     }
@@ -42,6 +42,10 @@
 
 - (void)configure {
 	self.backgroundColor = [UIColor clearColor];
+	
+	CGAffineTransform rotateTransform = CGAffineTransformIdentity;
+	rotateTransform = CGAffineTransformRotate(rotateTransform, DEGREES_TO_RADIANS(90));
+	self.transform = rotateTransform;
 	
 	// Create background ring
 	self.trackLayer = [CAShapeLayer layer];
@@ -67,7 +71,7 @@
 #pragma mark - Accessors
 
 - (CGFloat)circleRadius {
-	return MIN(self.frame.size.width, self.frame.size.height);
+	return MIN(self.frame.size.width, self.frame.size.height) / 2;
 }
 
 - (CGFloat)progress {
@@ -114,9 +118,6 @@
 
 - (UIBezierPath *)circlePath {
 	UIBezierPath *newPath = [UIBezierPath bezierPathWithOvalInRect:[self circleFrame]];
-	CGAffineTransform rotate = CGAffineTransformIdentity;
-	rotate = CGAffineTransformRotate(rotate, DEGREES_TO_RADIANS(180));
-	[newPath applyTransform:rotate];
 	return newPath;
 }
 

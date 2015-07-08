@@ -9,6 +9,15 @@
 #import "AVCVideoView.h"
 #import <AVFoundation/AVFoundation.h>
 
+static void *AVCVideoViewRateObservationContext = &AVCVideoViewRateObservationContext;
+static void *AVCVideoViewStatusObservationContext = &AVCVideoViewStatusObservationContext;
+static void *AVCVideoViewPlayerDidReachEndObservationContext = &AVCVideoViewPlayerDidReachEndObservationContext;
+
+@interface AVCVideoView ()
+
+
+@end
+
 @implementation AVCVideoView
 
 #pragma mark - Video playback required methods
@@ -83,9 +92,14 @@
 						[self setVideoFillMode:AVLayerVideoGravityResizeAspectFill];
 						[self.layer addSublayer:self.videoLayer];
 						
+						// Time observer to update progress indicator
+						__weak AVCVideoView *weakSelf = self;
+						self.timeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(0.1, NSEC_PER_SEC) queue:NULL usingBlock:^(CMTime time){
+							[weakSelf updatePlaybackProgress];
+						}];
+						
 						// Listen for video to reach end
-						//[self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial context:nil];
-						//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoDidReachEnd) name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
+						[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoDidReachEnd) name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
 					} else {
 						NSLog(@"Video is not playable!");
 					}
@@ -103,17 +117,15 @@
 	}
 }
 
-- (CGFloat)playbackProgress {
+- (void)updatePlaybackProgress {
+	NSLog(@"Updating progress");
 	double currentTime = CMTimeGetSeconds(self.player.currentTime);
 	double totalDuration = CMTimeGetSeconds([self videoDuration]);
-	return (CGFloat)(currentTime / totalDuration);
+	_playbackProgress = (currentTime / totalDuration);
+	[self.delegate didChangeProgress:self.playbackProgress];
 }
 
 #pragma mark - Video Playback
-
-- (void)videoDidReachEnd {
-	[self resetPlaybackPosition];
-}
 
 - (void)play {
 	[self.player play];
@@ -133,56 +145,27 @@
 }
 
 - (void)resetPlaybackPosition {
-	[self.player seekToTime:kCMTimeZero];
+	[self.player seekToTime:CMTimeMakeWithSeconds(0, 1)];
 }
 
-#pragma mark Scrubber
+- (void)videoDidReachEnd {
+	if (self.delegate) {
+		[self.delegate videoDidReachEnd];
+	} else {
+		[self stop];
+	}
+}
 
-//-(void)initScrubberTimer
-//{
-//	double interval = .1f;
-//	
-//	CMTime playerDuration = [self playerItemDuration];
-//	if (CMTIME_IS_INVALID(playerDuration))
-//	{
-//		return;
-//	}
-//	double duration = CMTimeGetSeconds(playerDuration);
-//	if (isfinite(duration))
-//	{
-//		CGFloat width = CGRectGetWidth([self.mScrubber bounds]);
-//		interval = 0.5f * duration / width;
-//	}
-//	
-//	/* Update the scrubber during normal playback. */
-//	__weak AVPlayerDemoPlaybackViewController *weakSelf = self;
-//	mTimeObserver = [self.mPlayer addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(interval, NSEC_PER_SEC)
-//															   queue:NULL /* If you pass NULL, the main queue is used. */
-//														  usingBlock:^(CMTime time)
-//					 {
-//						 [weakSelf syncScrubber];
-//					 }];
-//}
+#pragma mark - Key value observer
 
-// Set the scrubber based on the player current time.
-//- (void)syncScrubber
-//{
-//	CMTime playerDuration = [self playerItemDuration];
-//	if (CMTIME_IS_INVALID(playerDuration))
-//	{
-//		mScrubber.minimumValue = 0.0;
-//		return;
-//	}
-//	
-//	double duration = CMTimeGetSeconds(playerDuration);
-//	if (isfinite(duration))
-//	{
-//		float minValue = [self.mScrubber minimumValue];
-//		float maxValue = [self.mScrubber maximumValue];
-//		double time = CMTimeGetSeconds([self.mPlayer currentTime]);
-//		
-//		[self.mScrubber setValue:(maxValue - minValue) * time / duration + minValue];
-//	}
-//}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	if (context == AVCVideoViewPlayerDidReachEndObservationContext) {
+		
+	} else if (context == AVCVideoViewRateObservationContext) {
+		
+	} else if (context == AVCVideoViewStatusObservationContext) {
+		
+	}
+}
 
 @end

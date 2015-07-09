@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>735A5FD1-62BA-418B-A7BA-25C548E0970A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Portfolio</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>21035449A2FB9B7D490E104793906778E9D7EBAE</key>
+		<string>https://github.com/aaroncorsi/Portfolio.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Portfolio.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>21035449A2FB9B7D490E104793906778E9D7EBAE</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/aaroncorsi/Portfolio.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>21035449A2FB9B7D490E104793906778E9D7EBAE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>21035449A2FB9B7D490E104793906778E9D7EBAE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Portfolio</string>
+		</dict>
+	</array>
+</dict>
+</plist>

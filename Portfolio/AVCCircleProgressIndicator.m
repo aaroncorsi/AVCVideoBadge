@@ -63,6 +63,7 @@
 	self.progressLayer.lineWidth = 1;
 	self.progressLayer.fillColor = [[UIColor clearColor] CGColor];
 	self.progressLayer.strokeColor = [[UIColor colorWithRed:0 green:255 blue:216 alpha:1] CGColor];
+	self.progressLayer.lineCap = kCALineCapRound;
 	self.progressLayer.path = [self uprightCirclePath].CGPath;
 	[self.layer addSublayer:self.progressLayer];
 	self.progress = 0.2;

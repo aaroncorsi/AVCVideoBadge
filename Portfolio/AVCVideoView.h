@@ -28,6 +28,7 @@
 @property (nonatomic, strong) AVPlayerLayer *videoLayer;
 @property (nonatomic, readonly) CMTime videoDuration;
 @property (nonatomic) double playbackProgress;
+@property (nonatomic) BOOL playing;
 @property (nonatomic, weak) id timeObserver;
 
 @property (nonatomic, weak) id<AVCVideoViewDelegate> delegate;

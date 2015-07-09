@@ -16,7 +16,7 @@
 
 @implementation AVCPortfolioCollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString * const billboardReuseIdentifier = @"BillboardCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,7 +25,7 @@ static NSString * const reuseIdentifier = @"Cell";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:billboardReuseIdentifier];
     
     // Do any additional setup after loading the view.
 }
@@ -48,18 +48,16 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete method implementation -- Return the number of sections
-    return 0;
+    return self.entries.count;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete method implementation -- Return the number of items in the section
-    return 0;
+	return [[[self.entries objectForKey:@"detail"] objectForKey:@"sections"] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:billboardReuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
     

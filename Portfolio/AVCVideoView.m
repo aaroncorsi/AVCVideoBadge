@@ -127,6 +127,10 @@ static void *AVCVideoViewPlayerDidReachEndObservationContext = &AVCVideoViewPlay
 
 #pragma mark - Video Playback
 
+- (BOOL)playing {
+	return (self.player.rate == 0);
+}
+
 - (void)play {
 	[self.player play];
 }

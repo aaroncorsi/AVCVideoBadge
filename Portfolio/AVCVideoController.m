@@ -55,8 +55,8 @@
 	self.videoPlayerView.videoURL = videoURL;
 }
 
-- (void)setVideoThumbnail:(UIImage *)videoThumbnail {
-	_videoThumbnail = videoThumbnail;
+- (void)setThumbnailImage:(UIImage *)thumbnailImage {
+	_thumbnailImage = thumbnailImage;
 	
 	if (!self.thumbnailImageView) {
 		self.thumbnailImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
@@ -64,7 +64,11 @@
 		[self insertSubview:self.thumbnailImageView belowSubview:self.videoPlayerView];
 	}
 	
-	self.thumbnailImageView.image = self.videoThumbnail;
+	self.thumbnailImageView.image = self.thumbnailImage;
+	
+	if (!self.playing) {
+		[self stop];
+	}
 }
 
 - (void)setPlaybackProgress:(CGFloat)playbackProgress {
@@ -77,8 +81,12 @@
 
 #pragma mark - Playback
 
+- (BOOL)playing {
+	return self.videoPlayerView.playing;
+}
+
 - (void)play {
-	self.videoPlayerView.alpha = 1;
+	[self showPlayerAnimated:NO];
 	[self.videoPlayerView play];
 }
 
@@ -88,17 +96,38 @@
 
 - (void)stop {
 	[self.videoPlayerView stop];
-	[UIView animateWithDuration:0.2 animations:^(void){
-		if (self.thumbnailImageView) {
-			self.videoPlayerView.alpha = 0;
-		}
-	}completion:^(BOOL finished){
-		
-	}];
+	[self hidePlayerAnimated:YES];
 }
 
 - (void)playWithRate:(float)playbackRate {
 	[self.videoPlayerView playWithRate:playbackRate];
+}
+
+#pragma mark State Transitions
+
+- (void)hidePlayerAnimated:(BOOL)animated {
+	if (animated) {
+		[UIView animateWithDuration:0.5 animations:^(void){
+			if (self.thumbnailImageView.image) {
+				NSLog(@"Thumbnail Image: %@", self.thumbnailImageView.image);
+				self.videoPlayerView.alpha = 0;
+			}
+		}];
+	} else {
+		if (self.thumbnailImageView.image) {
+			self.videoPlayerView.alpha = 0;
+		}
+	}
+}
+
+- (void)showPlayerAnimated:(BOOL)animated {
+	if (animated) {
+		[UIView animateWithDuration:0.2 animations:^(void){
+			self.videoPlayerView.alpha = 1;
+		}];
+	} else {
+		self.videoPlayerView.alpha = 1;
+	}
 }
 
 #pragma mark - Gestures

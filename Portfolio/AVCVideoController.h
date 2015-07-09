@@ -14,6 +14,7 @@
 // Playback
 @property (nonatomic) BOOL playbackControlEnabled;
 @property (nonatomic) CGFloat playbackProgress;
+@property (nonatomic, readonly) BOOL playing;
 
 @property (nonatomic, strong) NSURL *videoURL;
 @property (nonatomic, strong) UIImage *videoThumbnail;
@@ -21,6 +22,7 @@
 // Video Player
 @property (nonatomic, strong) AVCVideoView *videoPlayerView;
 @property (nonatomic, strong) UIImageView *thumbnailImageView;
+@property (nonatomic, strong) UIImage *thumbnailImage;
 
 // Lifecycle
 - (void)configure;

@@ -24,12 +24,14 @@
 		8F8F72CC1B4AD64200FDDB0E /* AVCDetailLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F72CB1B4AD64200FDDB0E /* AVCDetailLayout.m */; };
 		8F8F72CF1B4AD65300FDDB0E /* AVCMasterLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F72CE1B4AD65300FDDB0E /* AVCMasterLayout.m */; };
 		8F8F72D21B4B23F100FDDB0E /* AVCCircleProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F72D11B4B23F100FDDB0E /* AVCCircleProgressIndicator.m */; };
+		8F8F72D71B4DAF3D00FDDB0E /* TestTalkingHeadLong.mov in Resources */ = {isa = PBXBuildFile; fileRef = 8F8F72D61B4DAF3D00FDDB0E /* TestTalkingHeadLong.mov */; };
 		8FB24CD01B4732C100E6D2C6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB24CCF1B4732C100E6D2C6 /* CoreMedia.framework */; };
 		8FB24CD21B47380600E6D2C6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB24CD11B47380600E6D2C6 /* CoreGraphics.framework */; };
 		8FB24CD51B473B4300E6D2C6 /* AVCVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB24CD41B473B4300E6D2C6 /* AVCVideoView.m */; };
 		8FB24CD81B47935700E6D2C6 /* AVCPortfolioCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB24CD71B47935700E6D2C6 /* AVCPortfolioCollectionViewController.m */; };
 		8FB24CDC1B48E2B700E6D2C6 /* AVCVideoBillboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB24CDB1B48E2B700E6D2C6 /* AVCVideoBillboard.m */; };
 		8FB24CDF1B48EAB800E6D2C6 /* AVCVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB24CDE1B48EAB800E6D2C6 /* AVCVideoController.m */; };
+		8FB51D211B4DDC4600CFFD12 /* Selfie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8FB51D201B4DDC4600CFFD12 /* Selfie.jpg */; };
 		8FFF492F1B4601F00068E519 /* TestTalkingHead.mov in Resources */ = {isa = PBXBuildFile; fileRef = 8FFF492E1B4601F00068E519 /* TestTalkingHead.mov */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,7 @@
 		8F8F72CE1B4AD65300FDDB0E /* AVCMasterLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCMasterLayout.m; sourceTree = "<group>"; };
 		8F8F72D01B4B23F100FDDB0E /* AVCCircleProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCCircleProgressIndicator.h; sourceTree = "<group>"; };
 		8F8F72D11B4B23F100FDDB0E /* AVCCircleProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCCircleProgressIndicator.m; sourceTree = "<group>"; };
+		8F8F72D61B4DAF3D00FDDB0E /* TestTalkingHeadLong.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = TestTalkingHeadLong.mov; sourceTree = "<group>"; };
 		8FB24CCF1B4732C100E6D2C6 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		8FB24CD11B47380600E6D2C6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8FB24CD31B473B4300E6D2C6 /* AVCVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCVideoView.h; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 		8FB24CDB1B48E2B700E6D2C6 /* AVCVideoBillboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCVideoBillboard.m; sourceTree = "<group>"; };
 		8FB24CDD1B48EAB800E6D2C6 /* AVCVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCVideoController.h; sourceTree = "<group>"; };
 		8FB24CDE1B48EAB800E6D2C6 /* AVCVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCVideoController.m; sourceTree = "<group>"; };
+		8FB51D201B4DDC4600CFFD12 /* Selfie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Selfie.jpg; sourceTree = "<group>"; };
 		8FFF492E1B4601F00068E519 /* TestTalkingHead.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = TestTalkingHead.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,7 +146,6 @@
 				8F8A23601B43820700907914 /* Custom Controls */,
 				8F8A23441B43815000907914 /* Images.xcassets */,
 				8F8A23461B43815000907914 /* LaunchScreen.xib */,
-				8FFF49301B4601F40068E519 /* Video */,
 				8F8A23371B43815000907914 /* Supporting Files */,
 				8F8A23631B43887300907914 /* Frameworks */,
 			);
@@ -216,6 +219,17 @@
 			name = "Badges and Billboards";
 			sourceTree = "<group>";
 		};
+		8F8F72D51B4DAF2C00FDDB0E /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				8F8F72C21B4AD26900FDDB0E /* Portfolio.json */,
+				8F8F72C31B4AD26A00FDDB0E /* Profile.json */,
+				8F8F72C41B4AD26A00FDDB0E /* Hobbies.json */,
+				8F8F72C51B4AD26A00FDDB0E /* Resume.json */,
+			);
+			name = Text;
+			sourceTree = "<group>";
+		};
 		8FB24CD91B48416500E6D2C6 /* Video */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,10 +244,8 @@
 		8FB24CE01B4A388600E6D2C6 /* Static Content */ = {
 			isa = PBXGroup;
 			children = (
-				8F8F72C21B4AD26900FDDB0E /* Portfolio.json */,
-				8F8F72C31B4AD26A00FDDB0E /* Profile.json */,
-				8F8F72C41B4AD26A00FDDB0E /* Hobbies.json */,
-				8F8F72C51B4AD26A00FDDB0E /* Resume.json */,
+				8F8F72D51B4DAF2C00FDDB0E /* Text */,
+				8FFF49301B4601F40068E519 /* Video */,
 			);
 			name = "Static Content";
 			sourceTree = "<group>";
@@ -241,7 +253,9 @@
 		8FFF49301B4601F40068E519 /* Video */ = {
 			isa = PBXGroup;
 			children = (
+				8FB51D201B4DDC4600CFFD12 /* Selfie.jpg */,
 				8FFF492E1B4601F00068E519 /* TestTalkingHead.mov */,
+				8F8F72D61B4DAF3D00FDDB0E /* TestTalkingHeadLong.mov */,
 			);
 			name = Video;
 			sourceTree = "<group>";
@@ -326,12 +340,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F8F72D71B4DAF3D00FDDB0E /* TestTalkingHeadLong.mov in Resources */,
 				8F8F72C61B4AD26A00FDDB0E /* Portfolio.json in Resources */,
 				8F8A23431B43815000907914 /* Main.storyboard in Resources */,
 				8F8A23481B43815000907914 /* LaunchScreen.xib in Resources */,
 				8F8F72C81B4AD26A00FDDB0E /* Hobbies.json in Resources */,
 				8F8F72C91B4AD26A00FDDB0E /* Resume.json in Resources */,
 				8F8A23451B43815000907914 /* Images.xcassets in Resources */,
+				8FB51D211B4DDC4600CFFD12 /* Selfie.jpg in Resources */,
 				8FFF492F1B4601F00068E519 /* TestTalkingHead.mov in Resources */,
 				8F8F72C71B4AD26A00FDDB0E /* Profile.json in Resources */,
 			);

@@ -43,9 +43,8 @@
 
 - (void)layoutSubviews {
 	[super layoutSubviews];
-	if (self.billboard) {
-		// Position badge in bottom right corner of billboard
-		self.center = [self billboardCorner];
+	if (self.thumbnailImageView) {
+		self.thumbnailImageView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
 	}
 }
 
@@ -120,6 +119,8 @@
 }
 
 - (void)stop {
+	NSLog(@"VideoView: %@", self.videoPlayerView);
+	NSLog(@"VideoThumbnail: %@", self.thumbnailImageView);
 	if (self.billboard) {
 		[self.billboard stop];
 	}
@@ -127,9 +128,15 @@
 }
 
 - (void)playWithRate:(float)playbackRate {
+	float previousRate = self.videoPlayerView.player.rate;
 	[super playWithRate:playbackRate];
 	if (self.billboard) {
 		[self.billboard playWithRate:playbackRate];
+		
+		// If finishing a fast forward, sync the playback position
+		if (playbackRate == 1 && previousRate > 1) {
+			[self.billboard.videoPlayerView.player seekToTime:self.videoPlayerView.player.currentTime];
+		}
 	}
 }
 
